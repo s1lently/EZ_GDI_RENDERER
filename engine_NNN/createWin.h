@@ -23,9 +23,9 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 }
 
 void buf_init(int* width, int* height) {
-    printf("请输入窗口宽度：");
+    printf("Width：");
     scanf("%d", width);
-    printf("请输入窗口高度：");
+    printf("Height：");
     scanf("%d", height);
 }
 
@@ -41,7 +41,7 @@ HWND createWin() {
     ShowWindow(hwnd, nCmdShow);
     UpdateWindow(hwnd);
     if (!hwnd) {
-        MessageBox(0, "窗口创建失败", "错误", MB_ICONERROR);
+        MessageBox(0, "WinCreateFailed", "Error", MB_ICONERROR);
         return NULL;
     }
     return hwnd;
