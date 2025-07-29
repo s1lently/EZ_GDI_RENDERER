@@ -11,7 +11,7 @@ int main() {
     HWND hwnd = createWin();
     if (!hwnd) return -1;
 
-    // 创建渲染器和渲染线程
+    // create renderer
     Renderer* renderer = new Renderer(hwnd);
     std::thread renderThread(RenderThreadFunc, renderer);
 
@@ -21,7 +21,7 @@ int main() {
         DispatchMessage(&msg);
     }
 
-    // 清理
+    // clear resources
     delete renderer;
     renderer = nullptr;
     if (renderThread.joinable()) renderThread.join();
